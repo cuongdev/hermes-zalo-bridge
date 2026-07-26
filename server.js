@@ -208,6 +208,7 @@ app.get("/policy", (req, res) => {
 });
 
 app.get("/health", (req, res) => {
+  if (!checkAuth(req, res)) return;
   res.json({
     ok: true,
     loggedIn: client.loggedIn,
